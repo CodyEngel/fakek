@@ -4,6 +4,7 @@ plugins {
     kotlin("jvm") version "1.3.70"
     id("io.gitlab.arturbosch.detekt").version("1.6.0")
     id("org.jetbrains.dokka").version("0.10.1")
+    jacoco
 }
 
 group = "dev.engel.fakek"
@@ -59,4 +60,23 @@ detekt {
             destination = file("build/reports/detekt/detekt.txt")
         }
     }
+}
+
+tasks.jacocoTestReport {
+    reports {
+        xml.isEnabled = true
+        xml.destination = file("build/reports/jacoco/xml/report.xml")
+        html.isEnabled = true
+        html.destination = file("build/reports/jacoco/html")
+        csv.isEnabled = false
+    }
+}
+
+val codeCoverage by tasks.registering {
+    group = "verification"
+    description = "Runs unit test suite with coverage."
+    dependsOn(":test", ":jacocoTestReport", ":jacocoTestCoverageVerification")
+
+    val jacocoTestReport = tasks.findByName("jacocoTestReport")
+    jacocoTestReport?.mustRunAfter(tasks.findByName("test"))
 }

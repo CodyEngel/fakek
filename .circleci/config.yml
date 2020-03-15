@@ -53,6 +53,23 @@ jobs:
           path: build/reports/
           destination: detekt
 
+  run_code_coverage:
+    executor: main-executor
+    steps:
+      - prepare_job
+      - run:
+          name: Run Code Coverage
+          command: ./gradlew codeCoverage
+      - run:
+          name: Send To CodeCov
+          command: bash <(curl -s https://codecov.io/bash)
+      - store_artifacts:
+          path: build/reports/
+          destination: jacoco
+      - store_test_results:
+          path: build/
+          destination: test-results
+
   run_dokka:
     executor: main-executor
     steps:
@@ -73,6 +90,9 @@ workflows:
       - run_detekt:
           requires:
             - retrieve_dependencies
-      - run_dokka:
+      - run_code_coverage:
           requires:
             - run_detekt
+      - run_dokka:
+          requires:
+            - run_code_coverage
