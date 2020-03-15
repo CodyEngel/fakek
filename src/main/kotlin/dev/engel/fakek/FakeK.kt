@@ -44,6 +44,7 @@ class FakeK(private val faker: Faker = Faker.instance()) {
     val fakePassword by lazy { FakePassword(fakerInternet) }
 }
 
+@Suppress("UnusedPrivateClass", "UnusedPrivateMember") // used for documentation
 private class FakeKUsageExample {
     private fun helloFakeK() {
         val fakeHello = fakek { "Hello, ${fakeName.firstName}!" }
