@@ -1,4 +1,4 @@
-package fakes
+package dev.engel.fakek.fakes
 
 data class FakeName(val firstName: String, val middleName: String, val lastName: String) {
     internal constructor(fakerName: FakerName) : this(fakerName.nameWithMiddle().split(" "))

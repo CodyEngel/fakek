@@ -1,4 +1,4 @@
-package fakes
+package dev.engel.fakek.fakes
 
 data class FakePassword(val password: String) {
     internal constructor(

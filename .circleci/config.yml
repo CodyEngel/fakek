@@ -37,11 +37,13 @@ commands:
 
 jobs:
   retrieve_dependencies:
+    executor: main-executor
     steps:
       - prepare_job
       - dependencies
 
   run_detekt:
+    executor: main-executor
     steps:
       - prepare_job
       - run:
@@ -52,6 +54,7 @@ jobs:
           destination: detekt
 
   run_dokka:
+    executor: main-executor
     steps:
       - prepare_job
       - run:
