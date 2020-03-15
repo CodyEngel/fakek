@@ -1,0 +1,75 @@
+version: 2.1
+
+executors:
+  main-executor:
+    working_directory: ~/code
+    docker:
+      - image: circleci/openjdk:8-jdk
+    environment:
+      JVM_OPTS: -Xmx3g
+
+references:
+  workspace_root: &workspace_root
+                    /tmp/workspace
+  attach_workspace: &attach_workspace
+    attach_workspace:
+      at: *workspace_root
+
+commands:
+  dependencies:
+    description: "Retrieves dependencies and ensures they are cached."
+    steps:
+      - restore_cache:
+          key: jars-{{ checksum "build.gradle.kts" }}
+      - run:
+          name: Retrieve Project Dependencies
+          command: ./gradlew dependencies
+      - save_cache:
+          paths:
+            - ~/.gradle
+          key: jars-{{ checksum "build.gradle.kts" }}
+
+  prepare_job:
+    description: "Prepares the job so it can execute properly."
+    steps:
+      - *attach_workspace
+      - checkout
+
+jobs:
+  retrieve_dependencies:
+    steps:
+      - prepare_job
+      - dependencies
+
+  run_detekt:
+    steps:
+      - prepare_job
+      - run:
+          name: Run Detekt
+          command: ./gradlew detekt
+      - store_artifacts:
+          path: build/reports/
+          destination: detekt
+
+  run_dokka:
+    steps:
+      - prepare_job
+      - run:
+          name: Run Dokka
+          command: ./gradlew dokka
+      - store_artifacts:
+          path: build/output/
+          destination: documentation
+
+
+workflows:
+  version: 2
+  verify_for_pr:
+    jobs:
+      - retrieve_dependencies
+      - run_detekt:
+          requires:
+            - retrieve_dependencies
+      - run_dokka:
+          requires:
+            - run_detekt
