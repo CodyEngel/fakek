@@ -1,5 +1,8 @@
 # FakeK
 
+[![codecov](https://codecov.io/gh/CodyEngel/fakek/branch/master/graph/badge.svg)](https://codecov.io/gh/CodyEngel/fakek) 
+[![CircleCI](https://circleci.com/gh/CodyEngel/fakek.svg?style=shield)](https://circleci.com/gh/CodyEngel/fakek)
+
 FakeK is a port of [Java-Faker](http://dius.github.io/java-faker/) for Kotlin. This is in very early development and at
 this time will act as a wrapper around Java-Faker for certain fake instances. There is no intention to bring all of the
 fakes and instead we will be intentional with what instances to add and which ones to exclude.
