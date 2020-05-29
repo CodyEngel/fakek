@@ -14,7 +14,7 @@ plugins {
 }
 
 group = "dev.fakek"
-version = "0.0.1"
+version = System.getenv("CIRCLE_TAG") ?: "0.0.1"
 
 repositories {
     jcenter()
