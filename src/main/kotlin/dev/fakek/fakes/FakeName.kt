@@ -1,4 +1,4 @@
-package dev.engel.fakek.fakes
+package dev.fakek.fakes
 
 /**
  * FakeName provides a fake full name which includes a first, middle, and last name.

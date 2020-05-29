@@ -82,6 +82,13 @@ jobs:
           path: build/output/
           destination: documentation
 
+  bintray_release:
+    executor: main-executor
+    steps:
+      - prepare_job
+      - run:
+          name: Run Bintray Release
+          command: ./gradlew bintrayUpload
 
 workflows:
   version: 2
@@ -97,3 +104,14 @@ workflows:
       - run_dokka:
           requires:
             - run_code_coverage
+  release_version:
+    jobs:
+      - retrieve_dependencies:
+          filters:
+            branches:
+              only: master
+            tags:
+              only: /.*/
+      - bintray_release:
+          requires:
+            - retrieve_dependencies

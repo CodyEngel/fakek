@@ -1,4 +1,4 @@
-package dev.engel.fakek.fakes
+package dev.fakek.fakes
 
 import io.mockk.mockk
 import io.mockk.verify

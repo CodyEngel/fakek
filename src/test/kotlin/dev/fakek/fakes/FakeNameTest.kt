@@ -1,4 +1,4 @@
-package dev.engel.fakek.fakes
+package dev.fakek.fakes
 
 import io.mockk.every
 import io.mockk.mockk

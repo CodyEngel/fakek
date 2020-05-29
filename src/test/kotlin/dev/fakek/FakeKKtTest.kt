@@ -1,4 +1,4 @@
-package dev.engel.fakek
+package dev.fakek
 
 import org.junit.jupiter.api.Test
 import strikt.api.expectThat

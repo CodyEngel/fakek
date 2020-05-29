@@ -1,9 +1,9 @@
-package dev.engel.fakek
+package dev.fakek
 
 import com.github.javafaker.Faker
-import dev.engel.fakek.fakes.FakeEmailAddress
-import dev.engel.fakek.fakes.FakeName
-import dev.engel.fakek.fakes.FakePassword
+import dev.fakek.fakes.FakeEmailAddress
+import dev.fakek.fakes.FakeName
+import dev.fakek.fakes.FakePassword
 
 /**
  * The top level function for interacting with FakeK. This provides an instance of [FakeContext] scoped to this

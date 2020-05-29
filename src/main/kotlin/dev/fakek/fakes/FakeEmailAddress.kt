@@ -1,4 +1,4 @@
-package dev.engel.fakek.fakes
+package dev.fakek.fakes
 
 /**
  * FakeEmailAddress provides a fake email address.

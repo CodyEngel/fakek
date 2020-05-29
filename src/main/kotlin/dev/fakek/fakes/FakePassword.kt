@@ -1,4 +1,4 @@
-package dev.engel.fakek.fakes
+package dev.fakek.fakes
 
 /**
  * FakePassword provides a fake password.
