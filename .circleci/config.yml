@@ -115,3 +115,8 @@ workflows:
       - bintray_release:
           requires:
             - retrieve_dependencies
+          filters:
+            branches:
+              only: master
+            tags:
+              only: /.*/
