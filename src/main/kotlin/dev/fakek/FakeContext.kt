@@ -1,9 +1,8 @@
+@file:Suppress("WildcardImport")
 package dev.fakek
 
 import com.github.javafaker.Faker
-import dev.fakek.fakes.FakeEmailAddress
-import dev.fakek.fakes.FakeName
-import dev.fakek.fakes.FakePassword
+import dev.fakek.fakes.*
 
 /**
  * The top level function for interacting with FakeK. This provides an instance of [FakeContext] scoped to this
@@ -30,7 +29,12 @@ class FakeContext(private val faker: Faker = Faker.instance()) {
     private val fakerInternet by lazy { faker.internet() }
 
     /**
-     * Provides a [fakeEmailAddress] making use of [fakeName] to help generate parts of the email address.
+     * Provides a [FakeCreditCard].
+     */
+    val fakeCreditCard by lazy { FakeCreditCard.create() }
+
+    /**
+     * Provides a [FakeEmailAddress] making use of [fakeName] to help generate parts of the email address.
      */
     val fakeEmailAddress by lazy { FakeEmailAddress(fakeName) }
 
@@ -40,7 +44,12 @@ class FakeContext(private val faker: Faker = Faker.instance()) {
     val fakeName by lazy { FakeName(fakerName) }
 
     /**
-     * Provides a [fakePassword].
+     * Provides a [FakePassword].
      */
     val fakePassword by lazy { FakePassword(fakerInternet) }
+
+    /**
+     * Provides a [FakeUrl].
+     */
+    val fakeUrl by lazy { FakeUrl(fakerInternet) }
 }
