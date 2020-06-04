@@ -45,4 +45,11 @@ internal class FakeContextTest {
 
         expectThat(fakeUrls).hasSize(1)
     }
+
+    @Test
+    fun `given a FakeContext when fakeAddress is accessed multiple times it should return the same value multiple times`() {
+        val fakeAddresses = createDistinctList { subject.fakeAddress }
+
+        expectThat(fakeAddresses).hasSize(1)
+    }
 }

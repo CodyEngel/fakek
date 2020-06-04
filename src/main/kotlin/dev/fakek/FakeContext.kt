@@ -27,6 +27,12 @@ fun <T> fakek(
 class FakeContext(private val faker: Faker = Faker.instance()) {
     private val fakerName by lazy { faker.name() }
     private val fakerInternet by lazy { faker.internet() }
+    private val fakerAddress by lazy { faker.address() }
+
+    /**
+     * Provides a [FakeAddress].
+     */
+    val fakeAddress by lazy { FakeAddress(fakerAddress) }
 
     /**
      * Provides a [FakeCreditCard].
