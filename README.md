@@ -23,3 +23,18 @@ fun main() {
     println(fakePerson)
 }
 ```
+
+## Dependencies
+
+FakeK stable releases are available through `jcenter()` and can be added with the following gradle snippets:
+
+```
+// Gradle - Groovy
+implementation "dev.fakek:fakek:<VERSION>"
+
+// Gradle - Kotlin
+implementation("dev.fakek:fakek:<VERSION>")
+```
+
+Note that the above examples uses implementation which will add `FakeK` to your production binaries. If you only need
+these for unit testing then consider using `testImplementation` instead.
