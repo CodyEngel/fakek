@@ -28,6 +28,7 @@ class FakeContext(private val faker: Faker = Faker.instance()) {
     private val fakerName by lazy { faker.name() }
     private val fakerInternet by lazy { faker.internet() }
     private val fakerAddress by lazy { faker.address() }
+    private val fakerColor by lazy { faker.color() }
 
     /**
      * Provides a [FakeAddress].
@@ -58,4 +59,9 @@ class FakeContext(private val faker: Faker = Faker.instance()) {
      * Provides a [FakeUrl].
      */
     val fakeUrl by lazy { FakeUrl(fakerInternet) }
+
+    /**
+     * Provides a [FakeColor].
+     */
+    val fakeColor by lazy { FakeColor(fakerColor) }
 }
