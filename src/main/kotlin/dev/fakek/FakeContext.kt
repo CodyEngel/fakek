@@ -25,15 +25,26 @@ fun <T> fakek(
  * new instance of [Faker].
  */
 class FakeContext(private val faker: Faker = Faker.instance()) {
-    private val fakerName by lazy { faker.name() }
-    private val fakerInternet by lazy { faker.internet() }
     private val fakerAddress by lazy { faker.address() }
+    private val fakerBook by lazy { faker.book() }
     private val fakerColor by lazy { faker.color() }
+    private val fakerInternet by lazy { faker.internet() }
+    private val fakerName by lazy { faker.name() }
 
     /**
      * Provides a [FakeAddress].
      */
     val fakeAddress by lazy { FakeAddress(fakerAddress) }
+
+    /**
+     * Provides a [FakeBook].
+     */
+    val fakeBook by lazy { FakeBook(fakerBook) }
+
+    /**
+     * Provides a [FakeColor].
+     */
+    val fakeColor by lazy { FakeColor(fakerColor) }
 
     /**
      * Provides a [FakeCreditCard].
@@ -59,9 +70,4 @@ class FakeContext(private val faker: Faker = Faker.instance()) {
      * Provides a [FakeUrl].
      */
     val fakeUrl by lazy { FakeUrl(fakerInternet) }
-
-    /**
-     * Provides a [FakeColor].
-     */
-    val fakeColor by lazy { FakeColor(fakerColor) }
 }
