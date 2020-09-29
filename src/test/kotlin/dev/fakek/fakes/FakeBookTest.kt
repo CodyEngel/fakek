@@ -13,7 +13,7 @@ internal class FakeBookTest {
     private val publisher = "publisher"
     private val title = "title"
 
-    private val fakerBook: FakerBook = mockk(relaxed = true) {
+    private val fakerBook: FakerBook = mockk {
         every { author() } returns author
         every { genre() } returns genre
         every { publisher() } returns publisher
