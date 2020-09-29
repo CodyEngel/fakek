@@ -1,7 +1,7 @@
 # FakeK
 
 ![Bintray](https://img.shields.io/bintray/v/codyengel/FakeK/fakek?style=flat-square)
-![CircleCI](https://img.shields.io/circleci/build/github/CodyEngel/fakek/master?style=flat-square)
+![CircleCI](https://img.shields.io/circleci/build/github/CodyEngel/fakek/main?style=flat-square)
 ![Codecov](https://img.shields.io/codecov/c/github/codyengel/fakek?style=flat-square)
 
 FakeK is a port of [Java-Faker](http://dius.github.io/java-faker/) for Kotlin. This is in very early development and at
