@@ -8,3 +8,4 @@ internal typealias FakerBook = Book
 internal typealias FakerColor = Color
 internal typealias FakerInternet = Internet
 internal typealias FakerName = Name
+internal typealias FakerBoolean = Bool
