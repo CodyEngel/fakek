@@ -26,6 +26,7 @@ fun <T> fakek(
  */
 class FakeContext(private val faker: Faker = Faker.instance()) {
     private val fakerAddress by lazy { faker.address() }
+    private val fakerAncient by lazy { faker.ancient() }
     private val fakerAvatar by lazy { faker.avatar() }
     private val fakerBook by lazy { faker.book() }
     private val fakerBoolean by lazy { faker.bool() }
@@ -37,6 +38,11 @@ class FakeContext(private val faker: Faker = Faker.instance()) {
      * Provides a [FakeAddress].
      */
     val fakeAddress by lazy { FakeAddress(fakerAddress) }
+
+    /**
+     * Provides a [FakeAncient].
+     */
+    val fakeAncient by lazy { FakeAncient(fakerAncient) }
 
     /**
      * Provides a [FakeAvatar].
