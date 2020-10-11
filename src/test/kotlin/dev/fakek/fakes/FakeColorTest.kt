@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test
 import strikt.api.expectThat
 import strikt.assertions.isEqualTo
 
-class FakeColorTest {
+internal class FakeColorTest {
 
     private val hexColor by lazy { "FF2D00" }
     private val hexColorWithHashSymbol by lazy { "#$hexColor" }
