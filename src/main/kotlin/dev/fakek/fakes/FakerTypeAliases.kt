@@ -6,6 +6,7 @@ internal typealias FakerAddress = Address
 internal typealias FakerAncient = Ancient
 internal typealias FakerArtist = Artist
 internal typealias FakerAvatar = Avatar
+internal typealias FakerBeer = Beer
 internal typealias FakerBoolean = Bool
 internal typealias FakerBook = Book
 internal typealias FakerCat = Cat
