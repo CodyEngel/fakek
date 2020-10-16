@@ -16,3 +16,4 @@ internal typealias FakerCrypto = Crypto
 internal typealias FakerDog = Dog
 internal typealias FakerInternet = Internet
 internal typealias FakerName = Name
+internal typealias FakerJob = Job
