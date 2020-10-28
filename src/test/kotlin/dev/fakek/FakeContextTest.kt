@@ -145,6 +145,13 @@ internal class FakeContextTest {
     }
 
     @Test
+    fun `given a FakeContext when fakeEducator is accessed multiple times it should return the same value multiple times`() {
+        val fakeEducator = createDistinctList { subject.fakeEducator }
+
+        expectThat(fakeEducator).hasSize(1)
+    }
+
+    @Test
     fun `given a FakeContext when fakeJob is accessed multiple times it should return the same value multiple times`() {
         val fakeJob = createDistinctList { subject.fakeJob }
 

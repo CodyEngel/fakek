@@ -39,6 +39,7 @@ class FakeContext(private val faker: Faker = Faker.instance()) {
     private val fakerCompany by lazy { faker.company() }
     private val fakerCrypto by lazy { faker.crypto() }
     private val fakerDog by lazy { faker.dog() }
+    private val fakerEducator by lazy { faker.educator() }
     private val fakerInternet by lazy { faker.internet() }
     private val fakerJob by lazy { faker.job() }
     private val fakerName by lazy { faker.name() }
@@ -113,6 +114,11 @@ class FakeContext(private val faker: Faker = Faker.instance()) {
      * Provides a [fakeCrypto].
      */
     val fakeCrypto by lazy { FakeCrypto(fakerCrypto) }
+
+    /**
+     * Provides a [FakeEducator].
+     */
+    val fakeEducator by lazy { FakeEducator(fakerEducator) }
 
     /**
      * Provides a [FakeEmailAddress] making use of [fakeName] to help generate parts of the email address.
