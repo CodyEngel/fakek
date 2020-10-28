@@ -38,6 +38,7 @@ class FakeContext(private val faker: Faker = Faker.instance()) {
     private val fakerColor by lazy { faker.color() }
     private val fakerCompany by lazy { faker.company() }
     private val fakerCrypto by lazy { faker.crypto() }
+    private val fakerDisease by lazy { faker.medical() }
     private val fakerDog by lazy { faker.dog() }
     private val fakerEducator by lazy { faker.educator() }
     private val fakerInternet by lazy { faker.internet() }
@@ -114,6 +115,11 @@ class FakeContext(private val faker: Faker = Faker.instance()) {
      * Provides a [fakeCrypto].
      */
     val fakeCrypto by lazy { FakeCrypto(fakerCrypto) }
+
+    /**
+     * Provides a [FakeDisease].
+     */
+    val fakeDisease by lazy { FakeDisease(fakerDisease) }
 
     /**
      * Provides a [FakeEducator].
