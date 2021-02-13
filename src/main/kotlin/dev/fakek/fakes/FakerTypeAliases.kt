@@ -4,6 +4,7 @@ import com.github.javafaker.*
 
 internal typealias FakerAddress = Address
 internal typealias FakerAncient = Ancient
+internal typealias FakerApp = App
 internal typealias FakerArtist = Artist
 internal typealias FakerAvatar = Avatar
 internal typealias FakerAviation = Aviation

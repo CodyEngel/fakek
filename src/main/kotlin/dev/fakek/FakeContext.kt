@@ -3,6 +3,7 @@
 package dev.fakek
 
 import com.github.javafaker.Faker
+import dev.fakek.fakes.FakeSemanticVersion
 import dev.fakek.fakes.*
 
 /**
@@ -28,6 +29,7 @@ fun <T> fakek(
 class FakeContext(private val faker: Faker = Faker.instance()) {
     private val fakerAddress by lazy { faker.address() }
     private val fakerAncient by lazy { faker.ancient() }
+    private val fakerApp by lazy { faker.app() }
     private val fakerArtist by lazy { faker.artist() }
     private val fakerAvatar by lazy { faker.avatar() }
     private val fakerAviation by lazy { faker.aviation() }
@@ -55,6 +57,11 @@ class FakeContext(private val faker: Faker = Faker.instance()) {
      * Provides a [FakeAncient].
      */
     val fakeAncient by lazy { FakeAncient(fakerAncient) }
+
+    /**
+     * Provides a [FakeApp].
+     */
+    val fakeApp by lazy { FakeApp(fakerApp, FakeSemanticVersion()) }
 
     /**
      * Provides a [FakeArtist].
